@@ -19,10 +19,15 @@
 var fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
+
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
+
 const generateProfile = require("./src/generate-profile.js");
+
+const carl = new Manager("Carl", "carl23Bad@")
+const teamProfile = []
 
 //profile input
 var question;
@@ -36,6 +41,7 @@ const questions = () => {
       choices: ["Manager", "Engineer", "Intern"],
     })
     .then((roleAns) => {
+      console.table(roleAns)
       switch (roleAns.peon) {
         case "Manager":
           question = {
@@ -96,8 +102,8 @@ const questions = () => {
 
 questions()
 
- fs.writeFile('index.html', generateProfile(name,), err => {
-   if (err) throw err;
+fs.writeFile('index.html', generateProfile(name,), err => {
+  if (err) throw err;
 
- console.log('oh boy');
- });
+  console.log('oh boy');
+});
