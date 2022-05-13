@@ -1,10 +1,62 @@
-const generateProfile = (data) => {
-    data.forEach(element => {
-        return `<h1>${data.name}<h2>`
-    })
+function employeeCards(data){
 
+}
+
+
+// Manager card
+function managerCard() {
     return `
+        
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${data.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${data.role}</h6>
+            <p class="card-text">${data.id}</p>
+            <a href="#" class="card-link">${data.email}</a>
+            <a href="#" class="card-link">${data.office}</a>
+        </div>
+    </div>
+    `;
+}
 
+
+
+
+// Engineer card
+function engineerCard() {
+
+    return `<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">${data.name}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">${data.role}</h6>
+        <p class="card-text">${data.id}</p>
+        <a href="#" class="card-link">${data.email}</a>
+        <a href="#" class="card-link">${data.github}</a>
+    </div>
+</div>
+
+`;
+}
+
+
+// Employee card 
+function internCard() {
+
+    `<div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${data.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${data.role}</h6>
+            <p class="card-text">${data.id}</p>
+            <a href="#" class="card-link">${data.email}</a>
+            <a href="#" class="card-link">${data.school}</a>
+        </div>
+    </div>
+    `;
+}
+
+
+const generateProfile = (data) => {
+    return `
     < !DOCTYPE html >
     <html lang="en">
 
@@ -27,58 +79,11 @@ const generateProfile = (data) => {
                         </nav>
                     </header>
                     <body>
-    <div class="container">
-        <div class="card-deck">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">NAME</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
-                    <p class="card-text">ID:</p>
-                    <a href="#" class="card-link">Email:</a>
-                    <a href="#" class="card-link">Github</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">${data.name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
-                    <p class="card-text">ID:</p>
-                    <a href="#" class="card-link">Email:</a>
-                    <a href="#" class="card-link">Github</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">NAME</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
-                    <p class="card-text">ID:</p>
-                    <a href="#" class="card-link">Email:</a>
-                    <a href="#" class="card-link">Github</a>
-                </div>
-            </div>
-            
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">NAME</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
-                    <p class="card-text">ID:</p>
-                    <a href="#" class="card-link">Email:</a>
-                    <a href="#" class="card-link">Github</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">NAME</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
-                    <p class="card-text">ID:</p>
-                    <a href="#" class="card-link">Email:</a>
-                    <a href="#" class="card-link">Github</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+                        <div class="container">
+                            <div class="card-deck">
+                                ${employeeCards(data)}
+                            </div>
+                    </body>
 
 
                 </html>

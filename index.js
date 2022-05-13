@@ -24,7 +24,7 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 
-const generateProfile = require("./src/generate-profile.js");
+// const generateProfile = require("./src/generate-profile.js");
 
 const carl = new Manager("Carl", "carl23Bad@")
 const teamProfile = []
@@ -32,6 +32,32 @@ const teamProfile = []
 //profile input
 var question;
 var construct;
+
+const loopQuestion = () => {
+  inquirer
+    .prompt({
+      type: "list",
+      name: "returnResponse",
+      message: "Add another Employee",
+      choices: ["yes", "no"]
+    })
+    .then((newEmployee) => {
+      console.log(newEmployee.returnResponse);
+      if (newEmployee.returnResponse == "yes") {
+        questions()
+      } else {
+        fs.writeFile('index.html', generateProfile(teamProfile), err => {
+          if (err) throw err;
+
+          console.log('oh boy');
+        });
+      }
+
+    });
+}
+
+
+console.log()
 const questions = () => {
   inquirer
     .prompt({
@@ -95,6 +121,8 @@ const questions = () => {
             questions.email,
             questions.roleSpecific
           );
+          teamProfile.push(vin)
+          loopQuestion();
           console.log(vin);
         });
     });
@@ -102,8 +130,6 @@ const questions = () => {
 
 questions()
 
-fs.writeFile('index.html', generateProfile(name,), err => {
-  if (err) throw err;
 
-  console.log('oh boy');
-});
+
+
