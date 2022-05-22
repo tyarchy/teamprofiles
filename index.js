@@ -24,7 +24,8 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 
-// const generateProfile = require("./src/generate-profile.js");
+const generateProfile = require("./src/generate-profile.js");
+
 
 const carl = new Manager("Carl", "carl23Bad@")
 const teamProfile = []
@@ -32,6 +33,8 @@ const teamProfile = []
 //profile input
 var question;
 var construct;
+
+
 
 const loopQuestion = () => {
   inquirer
@@ -115,15 +118,18 @@ const questions = () => {
           question,
         ])
         .then((questions) => {
-          var vin = new construct(
+          var employee = new construct(
             questions.name,
             questions.id,
             questions.email,
             questions.roleSpecific
           );
-          teamProfile.push(vin)
+          teamProfile.push(employee)
+          console.log(employee);
+          console.log(teamProfile);
           loopQuestion();
-          console.log(vin);
+          
+
         });
     });
 };
