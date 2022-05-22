@@ -19,14 +19,48 @@
 var fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
+
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
+
 const generateProfile = require("./src/generate-profile.js");
+
+
+const carl = new Manager("Carl", "carl23Bad@")
+const teamProfile = []
 
 //profile input
 var question;
 var construct;
+
+
+
+const loopQuestion = () => {
+  inquirer
+    .prompt({
+      type: "list",
+      name: "returnResponse",
+      message: "Add another Employee",
+      choices: ["yes", "no"]
+    })
+    .then((newEmployee) => {
+      console.log(newEmployee.returnResponse);
+      if (newEmployee.returnResponse == "yes") {
+        questions()
+      } else {
+        fs.writeFile('index.html', generateProfile(teamProfile), err => {
+          if (err) throw err;
+
+          console.log('oh boy');
+        });
+      }
+
+    });
+}
+
+
+console.log()
 const questions = () => {
   inquirer
     .prompt({
@@ -36,6 +70,7 @@ const questions = () => {
       choices: ["Manager", "Engineer", "Intern"],
     })
     .then((roleAns) => {
+      console.table(roleAns)
       switch (roleAns.peon) {
         case "Manager":
           question = {
@@ -83,21 +118,24 @@ const questions = () => {
           question,
         ])
         .then((questions) => {
-          var vin = new construct(
+          var employee = new construct(
             questions.name,
             questions.id,
             questions.email,
             questions.roleSpecific
           );
-          console.log(vin);
+          teamProfile.push(employee)
+          console.log(employee);
+          console.log(teamProfile);
+          loopQuestion();
+          
+
         });
     });
 };
 
 questions()
 
- fs.writeFile('index.html', generateProfile(name,), err => {
-   if (err) throw err;
 
- console.log('oh boy');
- });
+
+
