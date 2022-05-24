@@ -3,6 +3,7 @@
 ## Description
 ### Teamprofiles is a program for employers to create contact info for team members into organized html cards.
 
+## Github: https://github.com/tyarchy/teamprofiles
 ### Video demonstration link: https://www.youtube.com/watch?v=ITnMWgoOE4A
 
 ![Screenshot (178)](https://user-images.githubusercontent.com/92496520/169710021-c52a6fff-e0d8-411c-a68d-e746b5b6787f.png)
