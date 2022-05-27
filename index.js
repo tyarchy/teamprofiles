@@ -27,7 +27,7 @@ const Intern = require("./lib/Intern");
 const generateProfile = require("./src/generate-profile.js");
 
 
-const carl = new Manager("Carl", "carl23Bad@")
+
 const teamProfile = []
 
 //profile input
@@ -57,6 +57,20 @@ const loopQuestion = () => {
       }
 
     });
+}
+function writeToFile(templateStr) {
+  fs.writeFile('./teamProfile.html', templateStr, (err) => {
+  if (err) {
+      console.log(err);
+      return;
+  } console.log('html created!')
+})};
+
+function createHTML () {
+const templateStr = htmlTemplate(employees);
+console.log(employees)
+console.log(templateStr)
+writeToFile(templateStr)
 }
 
 
@@ -134,7 +148,10 @@ const questions = () => {
     });
 };
 
-questions()
+
+
+
+loopQuestion();
 
 
 
