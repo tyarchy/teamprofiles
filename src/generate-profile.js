@@ -10,29 +10,37 @@ function generateTeam(employees) {
     let engineerInfo = ``
     let internInfo = ``
     const templateArray = employees.forEach(element => {
+        // manager
         if (element.getRole() == "Manager") {
             managerInfo += `
-            <div class="card-body">
-             
+            <div class=col>
+            <div class="card-body">             
               <h3 class="card-text">${element.name} <br>${element.getRole()} <br>${element.office} <br>${element.id} </h3>
-              <a href="https://github.com/test" id="github" class="btn btn-primary">Go to github</a>
               <a href="mailto: ${element.email}" id="email" class="btn btn-primary">Send an email</a>
-            </div>`
+            </div>
+            </div>
+            `
+
+            //engineer
         } if (element.getRole() == "Engineer") {
             engineerInfo += `
+            <div class=col>
             <div class="card-body">
             <h3 class="card-text">${element.name} <br>${element.getRole()} <br>${element.id} <br>${element.github} </h3>
               <a href="https://github.com/${element.github}" id="github" class="btn btn-primary">Go to github</a>
               <a href="mailto: ${element.email}" id="email" class="btn btn-primary">Send an email</a>
-            </div>`
+            </div>
+            </div>
+            `
         } if (element.getRole() == "Intern") {
             internInfo += `
-            <div class="card-body">
-             
+            <div class=col>
+            <div class="card-body">             
               <h3 class="card-text">${element.name} <br>${element.getRole()} <br>${element.school} <br>${element.id} </h3>
-              <a href="https://github.com/test" id="github" class="btn btn-primary">Go to github</a>
               <a href="mailto: ${element.email}" id="email" class="btn btn-primary">Send an email</a>
-            </div>`
+            </div>
+            </div>
+            `
         }
     });
     return managerInfo + engineerInfo + internInfo;
@@ -51,16 +59,19 @@ const generateProfile = templateArray => {
         <title>Document</title>
     </head>
     <body>
-        <div class="d-flex justify-content-center bg-danger" id="banner">
-            <h1 class="text-light">Team Profiles</h1>
+    <div class="d-flex justify-content-center bg-danger" id="banner">
+        <h1 class="text-light">Team Profiles</h1>
+    </div>
+    <div class="container">
+        <div class=row>
+
+            <!-- cards go here -->
+            ${generateTeam(templateArray)}
+            <div class="card m-4" id="cardHome" style="width: 18rem;">
+            
         </div>
-    <div class=col>
-    <!-- cards go here -->
-    ${generateTeam(templateArray)}
-    <div class="card m-4" id="cardHome" style="width: 18rem;">
     </div>
-    </div>
-    </body>
+</body>
     </html>
                     `
 };

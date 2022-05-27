@@ -21,7 +21,21 @@
 </header>
 
 <body>
-   
+
+    <body>
+        <div class="d-flex justify-content-center bg-danger" id="banner">
+            <h1 class="text-light">Team Profiles</h1>
+        </div>
+        <div class="container">
+            <div class=row>
+
+                <!-- cards go here -->
+                ${generateTeam(templateArray)}
+                <div class="card m-4" id="cardHome" style="width: 18rem;">
+                </div>
+            </div>
+        </div>
+    </body>
 </body>
 
 </html>
