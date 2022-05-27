@@ -1,12 +1,18 @@
-const Employee = require('../lib/employee.js');
+const Employee = require('../lib/Employee');
 
-test('creates an Employee object', () => {
-    const Employee = new Employee('bob', 'id', 'email');
 
-    expect(Employee.name).toBe(this.name);
-    expect(Employee.id).toBe(this.id);
-    expect(Employee.email).toBe(this.email);
-    expect(Employee.role).toBe(this.roll);
+
+test('employee mega object', () => {
+  const employee = new Engineer('BillyBob', 1, 'email');
+  
+  expect(employee.name) .toEqual(expect.any(String));
 });
 
 
+
+// gets role from getRole() 
+test('gets role of employee', () => {
+  const employee = new Employee('BillyBob', 90, 'email', 'github');
+
+  expect(employee.getRole()).toEqual("Engineer");
+});

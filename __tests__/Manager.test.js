@@ -1,9 +1,22 @@
-const Manager = require('..lib/Manager');
+const Manager = require('../lib/Manager');
 
-test('creates an Employee object', () => {
-    const Manager = new Manager('Joe', 'id', 'email');
 
-    expect(Manager.employeeName).toBe(this.employeeName);
-    expect(Manager.id).toBe(this.id);
-    expect(Manager.email).toBe(this.email);
+test('manager object', () => {
+    const manager = new Manager('BillyBob', 1, 'email', 'office');
+    
+    expect(manager.office) .toEqual(expect.any(Number));
+});
+
+// the office
+test('manager office', () => {
+    const manager = new Manager('BillyBob', 1, 'email', 'office');
+
+    expect(manager.office()).toEqual(expect.stringContaining(manager.office.toString()));
+});
+
+// gets role 
+test('gets role of employee', () => {
+    const manager = new Manager('BillyBob', 90, 'email', 'office');
+
+    expect(manager.getRole()).toEqual("Manager");
 });
